@@ -7,9 +7,9 @@ import PyPDF2
 from flask import Flask, request, render_template, redirect, url_for, session, jsonify
 
 app = Flask(__name__)
-app.secret_key = 'supersecretkey'  # Needed for session
+app.secret_key = os.environ.get('SECRET_KEY', 'supersecretkey')  # Get secret key from env
 
-GROQ_API_KEY = 'groq_api_key'  # Your Groq API Key
+# GROQ_API_KEY = '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' # Removed hardcoded key
 MODEL_NAME = 'llama3-70b-8192'
 
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'doc', 'docx', 'ppt', 'pptx'}
@@ -99,19 +99,27 @@ def upload():
         except Exception as e:
             return f"Failed to extract text from file: {str(e)}"
 
-        questions = generate_quiz_from_text(text_content, GROQ_API_KEY, MODEL_NAME)
+        groq_api_key = os.environ.get('GROQ_API_KEY')
+        if not groq_api_key:
+            return "Error: GROQ_API_KEY environment variable not set."
+
+        questions = generate_quiz_from_text(text_content, groq_api_key, MODEL_NAME)
 
         os.makedirs('static', exist_ok=True)
         with open('static/quiz_data.json', 'w', encoding='utf-8') as f:
             json.dump(questions, f, indent=2)
 
-        return redirect(url_for('quiz'))
+        return redirect(url_for('quezz')) # Corrected redirect
 
     return "Unsupported file type or no file uploaded."
 
 @app.route('/quiz')
 def quiz():
-    return render_template('quiz.html')
+    return redirect(url_for('quez')) # Redirect /quiz to /quezz
+
+@app.route('/quez')
+def quezz():
+    return render_template('quez.html') # Corrected template name
 
 # 🔥 Store results from frontend
 @app.route('/leaderboard', methods=['POST'])
@@ -141,9 +149,10 @@ def update_leaderboard():
     # Process and store data
     return jsonify({"message": "Leaderboard updated successfully"})
 
-@app.route('/hybridaction/zybTrackerStatisticsAction', methods=['GET', 'POST'])
-def block_unwanted_requests(subpath):
-    return jsonify({"error": "Invalid request"}), 404
+# Removed unwanted route
+# @app.route('/hybridaction/zybTrackerStatisticsAction', methods=['GET', 'POST'])
+# def block_unwanted_requests(subpath):
+#     return jsonify({"error": "Invalid request"}), 404
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=os.environ.get('PORT', 5000), debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000))) # Listen on all interfaces and dynamic port
