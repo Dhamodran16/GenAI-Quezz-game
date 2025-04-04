@@ -113,9 +113,9 @@ def upload():
 
     return "Unsupported file type or no file uploaded."
 
-@app.route('/quiz')
-def quiz():
-    return redirect(url_for('quiz')) # Redirect /quiz to /quezz
+# @app.route('/quiz')
+# def quiz():
+#     return redirect(url_for('quiz')) # Redirect /quiz to /quezz
 
 @app.route('/quiz')
 def quiz():
