@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GenAI Interactive Quiz</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #24576d, #244174);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .floating-element {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: floatUp 8s infinite linear;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    .quiz-box {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .question-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .option-btn {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 8px;
+      background-color: #fff;
+      color: #333;
+      border: 2px solid transparent;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .option-btn:hover {
+      background-color: #17a2b8;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .option-btn.correct {
+      background-color: #28a745 !important;
+      color: white !important;
+      border-color: #28a745 !important;
+    }
+
+    .option-btn.wrong {
+      background-color: #dc3545 !important;
+      color: white !important;
+      border-color: #dc3545 !important;
+    }
+
+    #nav-btns button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 8px;
+    }
+
+    .info-text {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-animation"></div>
+
+  <div class="container mt-5">
+    <div class="quiz-box">
+      <h2 id="question-title" class="question-title">Loading question...</h2>
+      <div id="options"></div>
+      <div id="nav-btns" class="mt-4">
+        <button class="btn btn-warning" onclick="prevQuestion()">Previous</button>
+        <button class="btn btn-primary" onclick="nextQuestion()">Next</button>
+        <button class="btn btn-success" onclick="submitQuiz()">Submit</button>
+      </div>
+      <p class="info-text">Question <span id="q-number">1</span> of 30</p>
+      <p class="info-text">Time Taken: <span id="timer">0s</span></p>
+    </div>
+  </div>
+
+  <script>
+    let questions = [];
+    let currentIndex = 0;
+    let selectedAnswers = Array(30).fill(null);
+    let correctAnswers = 0;
+    let timer = 0;
+    let timerInterval;
+
+    fetch('/static/quiz_data.json')
+      .then(res => res.json())
+      .then(data => {
+        questions = data;
+        loadQuestion();
+        timerInterval = setInterval(() => {
+          timer++;
+          document.getElementById("timer").innerText = `${timer}s`;
+        }, 1000);
+      });
+
+    function loadQuestion() {
+      const q = questions[currentIndex];
+      document.getElementById("question-title").innerText = `Q${currentIndex + 1}. ${q.question}`;
+      document.getElementById("q-number").innerText = currentIndex + 1;
+
+      const optionsDiv = document.getElementById("options");
+      optionsDiv.innerHTML = "";
+
+      const correctIndex = q.answer.charCodeAt(0) - 65;
+      const userSelection = selectedAnswers[currentIndex];
+
+      q.options.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerText = opt;
+
+        if (userSelection !== null) {
+          btn.disabled = true;
+          if (i === correctIndex) btn.classList.add('correct');
+          if (i === userSelection && i !== correctIndex) btn.classList.add('wrong');
+        }
+
+        btn.onclick = () => selectAnswer(btn, i, correctIndex);
+        optionsDiv.appendChild(btn);
+      });
+    }
+
+    function selectAnswer(btn, optionIndex, correctIndex) {
+  if (selectedAnswers[currentIndex] !== null) return;
+
+  selectedAnswers[currentIndex] = optionIndex;
+
+  document.querySelectorAll('.option-btn').forEach((b, i) => {
+    b.disabled = true;
+    if (i === correctIndex) b.classList.add('correct'); // ✅ always show correct answer
+    if (i === optionIndex && i !== correctIndex) b.classList.add('wrong'); // ❌ show selected wrong
+  });
+
+  if (optionIndex === correctIndex) {
+    correctAnswers++;
+  }
+
+  setTimeout(nextQuestion, 1000);
+}
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        loadQuestion();
+      }
+    }
+
+    function nextQuestion() {
+      if (currentIndex < questions.length - 1) {
+        currentIndex++;
+        loadQuestion();
+      }
+    }
+
+    function submitQuiz() {
+      clearInterval(timerInterval);
+
+      fetch('/leaderboard', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          totalScore: correctAnswers * 10,
+          correctAnswers: correctAnswers,
+          timeTaken: `${timer}s`
+        })
+      }).then(res => {
+        if (res.ok) {
+          window.location.href = '/leaderboard.html';
+        } else {
+          alert("Submission failed");
+        }
+      });
+    }
+
+    function createFloatingElements() {
+      const bg = document.querySelector('.background-animation');
+      for (let i = 0; i < 20; i++) {
+        let elem = document.createElement("div");
+        elem.className = "floating-element";
+        elem.style.left = `${Math.random() * 100}vw`;
+        elem.style.animationDuration = `${Math.random() * 6 + 4}s`;
+        bg.appendChild(elem);
+      }
+    }
+
+    createFloatingElements();
+  </script>
+</body>
+</html>
