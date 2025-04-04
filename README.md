@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Dhamodran16/GenAi-Quezz-Games/main/static/logo.png" alt="GenAi Quezz Games Logo" width="200">
+  <img src="/logo.png" alt="GenAi Quezz Games Logo" width="200">
 </p>
 
 <h1 align="center" style="font-family: 'Arial Black', sans-serif; color: #3498db;">GenAi Quezz Games</h1>
@@ -98,7 +98,7 @@
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/your-username/GenAi-Quezz-Games/main/images/quiz-interface.png" alt="Quiz Interface" width="600">
+  <img src="images/quiz-interface.png" alt="Quiz Interface" width="600">
   <br>
   <em style="font-family: 'Times New Roman', serif; font-size: 0.9em;">Interactive quiz interface with real-time feedback.</em>
 </p>
@@ -106,7 +106,7 @@
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/your-username/GenAi-Quezz-Games/main/static/leaderboard.png" alt="Leaderboard" width="400">
+  <img src="images/leaderboard.png" alt="Leaderboard" width="400">
   <br>
   <em style="font-family: 'Times New Roman', serif; font-size: 0.9em;">View your quiz results on the leaderboard.</em>
 </p>
