@@ -98,7 +98,7 @@
 <br>
 
 <p align="center">
-  <img src="images/quiz-interface.png" alt="Quiz Interface" width="600">
+  <img src="images/quiz-inteface.png" alt="Quiz Interface" width="600">
   <br>
   <em style="font-family: 'Times New Roman', serif; font-size: 0.9em;">Interactive quiz interface with real-time feedback.</em>
 </p>
