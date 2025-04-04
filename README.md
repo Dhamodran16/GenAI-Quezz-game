@@ -11,7 +11,7 @@
 <br>
 
 <p align="center">
-  <a href="sudo delete web service GenAI-Quezz-game-1" style="font-family: 'Verdana', sans-serif; color: #2ecc71; text-decoration: none;">
+  <a href="https://genai-quezz-game-2.onrender.com" style="font-family: 'Verdana', sans-serif; color: #2ecc71; text-decoration: none;">
     <strong style="font-size: 1.1em;">View Live</strong>
   </a>
   <span> | </span>
