@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/logo.png" alt="GenAi Quezz Games Logo" width="200">
+  <img src="images/genai.avif" alt="GenAi Quezz Games Logo" width="200">
 </p>
 
 <h1 align="center" style="font-family: 'Arial Black', sans-serif; color: #3498db;">GenAi Quezz Games</h1>
