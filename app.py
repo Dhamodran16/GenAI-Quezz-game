@@ -118,7 +118,7 @@ def quiz():
     return redirect(url_for('quiz')) # Redirect /quiz to /quezz
 
 @app.route('/quiz')
-def quezz():
+def quiz():
     return render_template('quiz.html') # Corrected template name
 
 # 🔥 Store results from frontend
