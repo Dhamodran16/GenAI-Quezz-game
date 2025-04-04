@@ -90,8 +90,7 @@
 <h2 style="font-family: 'Georgia', serif; color: #e74c3c;">🖼️ Screenshots</h2>
 
 <p align="center">
-  <img src="images/leaderboard.png
-  " alt="Upload Page" width="400">
+  <img src="https://raw.githubusercontent.com/your-username/GenAi-Quezz-Games/main/images/upload-page.png"alt="Upload Page" width="400">
   <br>
   <em style="font-family: 'Times New Roman', serif; font-size: 0.9em;">Upload your file to generate a quiz.</em>
 </p>
@@ -99,7 +98,7 @@
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/your-username/GenAi-Quezz-Games/main/static/screenshot_quiz.png" alt="Quiz Interface" width="600">
+  <img src="https://raw.githubusercontent.com/your-username/GenAi-Quezz-Games/main/images/quiz-interface.png" alt="Quiz Interface" width="600">
   <br>
   <em style="font-family: 'Times New Roman', serif; font-size: 0.9em;">Interactive quiz interface with real-time feedback.</em>
 </p>
@@ -107,7 +106,7 @@
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/your-username/GenAi-Quezz-Games/main/static/screenshot_leaderboard.png" alt="Leaderboard" width="400">
+  <img src="https://raw.githubusercontent.com/your-username/GenAi-Quezz-Games/main/static/leaderboard.png" alt="Leaderboard" width="400">
   <br>
   <em style="font-family: 'Times New Roman', serif; font-size: 0.9em;">View your quiz results on the leaderboard.</em>
 </p>
