@@ -9,7 +9,7 @@ from flask import Flask, request, render_template, redirect, url_for, session, j
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'  # Needed for session
 
-GROQ_API_KEY = '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'  # Your Groq API Key
+GROQ_API_KEY = 'groq_api_key'  # Your Groq API Key
 MODEL_NAME = 'llama3-70b-8192'
 
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'doc', 'docx', 'ppt', 'pptx'}
