@@ -146,4 +146,4 @@ def block_unwanted_requests(subpath):
     return jsonify({"error": "Invalid request"}), 404
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=os.environ.get('PORT', 5000), debug=False)
+    app.run(host='0.0.0.0', port=os.environ.get('PORT', 5000), debug=True)
