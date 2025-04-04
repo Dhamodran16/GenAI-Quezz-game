@@ -117,16 +117,11 @@
   Contributions are welcome! If you have any ideas for improvements, bug fixes, or new features, feel free to open an issue or submit a pull request. Please ensure your contributions align with the project's goals and coding standards.
 </p>
 
-<h2 style="font-family: 'Georgia', serif; color: #e74c3c;">📜 License</h2>
-
-<p style="font-family: 'Calibri', sans-serif; line-height: 1.6;">
-  This project is licensed under the <a href="LICENSE" style="color: #3498db; text-decoration: none;">MIT License</a>.
-</p>
 
 <h2 style="font-family: 'Georgia', serif; color: #e74c3c;">📧 Contact</h2>
 
 <p style="font-family: 'Calibri', sans-serif; line-height: 1.6;">
-  For any questions or feedback, please feel free to reach out to <a href="mailto:your.email@example.com" style="color: #e67e22; text-decoration: none;">your.email@example.com</a>.
+  For any questions or feedback, please feel free to reach out to <a href="dhamodraprasathcm.23aim@kongu.edu" style="color: #e67e22; text-decoration: none;">mail_id</a>.
 </p>
 
 <p align="center" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 0.8em; color: #777;">
