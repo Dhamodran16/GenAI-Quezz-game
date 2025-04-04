@@ -15,7 +15,7 @@
     <strong style="font-size: 1.1em;">View Live</strong>
   </a>
   <span> | </span>
-  <a href="https://github.com/Dhamodran16/GenAi-Quezz-Games/issues" style="font-family: 'Verdana', sans-serif; color: #f39c12; text-decoration: none;">
+  <a href="dhamodraprasathcm.23aim@kongu.edu" style="font-family: 'Verdana', sans-serif; color: #f39c12; text-decoration: none;">
     <strong style="font-size: 1.1em;">Report Issues</strong>
   </a>
 </p>
