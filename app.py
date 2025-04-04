@@ -109,17 +109,17 @@ def upload():
         with open('static/quiz_data.json', 'w', encoding='utf-8') as f:
             json.dump(questions, f, indent=2)
 
-        return redirect(url_for('quezz')) # Corrected redirect
+        return redirect(url_for('quiz')) # Corrected redirect
 
     return "Unsupported file type or no file uploaded."
 
 @app.route('/quiz')
 def quiz():
-    return redirect(url_for('quez')) # Redirect /quiz to /quezz
+    return redirect(url_for('quiz')) # Redirect /quiz to /quezz
 
-@app.route('/quez')
+@app.route('/quoz')
 def quezz():
-    return render_template('quez.html') # Corrected template name
+    return render_template('quiz.html') # Corrected template name
 
 # 🔥 Store results from frontend
 @app.route('/leaderboard', methods=['POST'])
