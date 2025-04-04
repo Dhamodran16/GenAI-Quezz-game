@@ -117,7 +117,7 @@ def upload():
 def quiz():
     return redirect(url_for('quiz')) # Redirect /quiz to /quezz
 
-@app.route('/quoz')
+@app.route('/quiz')
 def quezz():
     return render_template('quiz.html') # Corrected template name
 
