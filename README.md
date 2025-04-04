@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/your-username/GenAi-Quezz-Games/main/static/logo.png" alt="GenAi Quezz Games Logo" width="200">
+  <img src="https://raw.githubusercontent.com/Dhamodran16/GenAi-Quezz-Games/main/static/logo.png" alt="GenAi Quezz Games Logo" width="200">
 </p>
 
 <h1 align="center" style="font-family: 'Arial Black', sans-serif; color: #3498db;">GenAi Quezz Games</h1>
@@ -15,7 +15,7 @@
     <strong style="font-size: 1.1em;">View Live Demo</strong>
   </a>
   <span> | </span>
-  <a href="https://github.com/your-username/GenAi-Quezz-Games/issues" style="font-family: 'Verdana', sans-serif; color: #f39c12; text-decoration: none;">
+  <a href="https://github.com/Dhamodran16/GenAi-Quezz-Games/issues" style="font-family: 'Verdana', sans-serif; color: #f39c12; text-decoration: none;">
     <strong style="font-size: 1.1em;">Report Issues</strong>
   </a>
 </p>
@@ -90,7 +90,7 @@
 <h2 style="font-family: 'Georgia', serif; color: #e74c3c;">🖼️ Screenshots</h2>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Dhamodran16/GenAi-Quezz-Games/main/images/upload-page.png"alt="Upload Page" width="400">
+  <img src="images/upload-page.png"alt="Upload Page" width="400">
   <br>
   <em style="font-family: 'Times New Roman', serif; font-size: 0.9em;">Upload your file to generate a quiz.</em>
 </p>
