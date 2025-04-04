@@ -76,7 +76,7 @@
   <li><strong>Set up your Groq API Key:</strong>
     <ul>
       <li>Obtain your API key from the <a href="https://console.groq.com/keys" style="color: #9b59b6; text-decoration: none;">Groq Console</a>.</li>
-      <li>Replace <code>'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'</code> in the <code>app.py</code> file with your actual API key.
+      <li>Replace <code>'groq_api_key</code> in the <code>app.py</code> file with your actual API key.
         <pre><code style="font-family: 'Courier New', monospace; background-color: #f4f4f4; padding: 0.5em; border-radius: 3px; display: block; white-space: pre-wrap;">GROQ_API_KEY = 'YOUR_ACTUAL_GROQ_API_KEY'</code></pre>
       </li>
     </ul>
