@@ -11,8 +11,8 @@
 <br>
 
 <p align="center">
-  <a href="https://genai-quezz-games.yourdomain.com" style="font-family: 'Verdana', sans-serif; color: #2ecc71; text-decoration: none;">
-    <strong style="font-size: 1.1em;">View Live Demo</strong>
+  <a href="sudo delete web service GenAI-Quezz-game-1" style="font-family: 'Verdana', sans-serif; color: #2ecc71; text-decoration: none;">
+    <strong style="font-size: 1.1em;">View Live</strong>
   </a>
   <span> | </span>
   <a href="https://github.com/Dhamodran16/GenAi-Quezz-Games/issues" style="font-family: 'Verdana', sans-serif; color: #f39c12; text-decoration: none;">
