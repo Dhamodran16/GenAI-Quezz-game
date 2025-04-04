@@ -90,7 +90,7 @@
 <h2 style="font-family: 'Georgia', serif; color: #e74c3c;">🖼️ Screenshots</h2>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/your-username/GenAi-Quezz-Games/main/images/upload-page.png"alt="Upload Page" width="400">
+  <img src="https://raw.githubusercontent.com/Dhamodran16/GenAi-Quezz-Games/main/images/upload-page.png"alt="Upload Page" width="400">
   <br>
   <em style="font-family: 'Times New Roman', serif; font-size: 0.9em;">Upload your file to generate a quiz.</em>
 </p>
